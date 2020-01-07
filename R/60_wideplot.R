@@ -203,9 +203,11 @@ my_env <- new.env(parent = emptyenv())
 #' @export
 #'
 #' @examples
-#' \dontrun{wideplot(sleep, dataclass = c("factor"),
+#' if (interactive()) {
+#' wideplot(sleep, dataclass = c("factor"),
 #' factor=c("point graph", "line graph", "tile plot"),
-#' numeric = c("point graph", "line graph", "stepped line graph"))}
+#' numeric = c("point graph", "line graph", "stepped line graph"))
+#' }
 wideplot <- function(data,
                      dataclass = NULL,
                      logical = NULL,
@@ -228,7 +230,8 @@ wideplot <- function(data,
     }
     return(x)
   }
-  if(rmarkdown::pandoc_available() == FALSE || rmarkdown::pandoc_version() < "1.12.3") {stop(warning_pandoc)}
+  if (rmarkdown::pandoc_available("1.12.3") == FALSE) {print(warning_pandoc)}
+  else if (rmarkdown::pandoc_available("1.12.3") == TRUE) {
   ## Default types of data
   if (is.null(dataclass) == TRUE) {
     index <- c(length(data[sapply(data, is.logical)])>0,
@@ -489,7 +492,7 @@ if (length(data[sapply(data, is.logical)])>0)
                                              } else if (logical[", j, "] == 'blank') {
                                              assign(lgi", letters[j], ",
                                              blank(pp, colnames(pp[i])), envir=my_env)
-                                             } else {print(warning_wp_lc)}")))}
+                                             } else {print(warning_wrong)}")))}
 
       line <- eval(parse(
         text=paste0("paste0('gridExtra::grid.arrange(' ,", paste0(" lgi", letters[1:ncol], collapse = ",', ',"), ",', ncol=", ncol, ")')")))
@@ -557,7 +560,7 @@ if (length(data[sapply(data, is.ordered)])>0)
                                              } else if (ordered[", j, "] == 'blank') {
                                              assign(ofi", letters[j], ",
                                              blank(pp, colnames(pp[i])), envir=my_env)
-                                             } else {print(warning_wp_of)}")))}
+                                             } else {print(warning_wrong)}")))}
 
       line <- eval(parse(
         text=paste0("paste0('gridExtra::grid.arrange(' ,", paste0(" ofi", letters[1:ncol], collapse = ",', ',"), ",', ncol=", ncol, ")')")))
@@ -724,7 +727,7 @@ if (length(data[sapply(data, is.factor)][!sapply(data[sapply(data, is.factor)], 
                                                 } else if (factor[", j, "] == 'blank') {
                                                 assign(fti", letters[j], ",
                                                 blank(pp, colnames(pp[i])), envir=my_env)
-                                                } else {print(warning_wp_ft)}
+                                                } else {print(warning_wrong)}
                                                 ")
                                     )
                               )
@@ -793,7 +796,7 @@ if (length(data[sapply(data, is.factor)][!sapply(data[sapply(data, is.factor)], 
                                                     } else if (datetime[", j, "] == 'blank') {
                                                     assign(dti", letters[j], ",
                                                     blank(pp, colnames(pp[i])), envir=my_env)
-                                                    } else {print(warning_wp_dt)}")))}
+                                                    } else {print(warning_wrong)}")))}
 
           line <- eval(parse(
             text=paste0("paste0('gridExtra::grid.arrange(' ,", paste0(" dti", letters[1:ncol], collapse = ",', ',"), ",', ncol=", ncol, ")')")))
@@ -947,7 +950,7 @@ if (length(data[sapply(data, is.numeric)])>0)
                                              } else if (numeric[", j, "] == 'blank') {
                                              assign(nui", letters[j], ",
                                              blank(pp, colnames(pp[i])), envir=my_env)
-                                             } else {print(warning_wp_nu)}")))}
+                                             } else {print(warning_wrong)}")))}
 
       line <- eval(parse(
         text=paste0("paste0('gridExtra::grid.arrange(' ,", paste0(" nui", letters[1:ncol], collapse = ",', ',"), ",', ncol=", ncol, ")')")))
@@ -1114,7 +1117,7 @@ if (length(data[sapply(data, is.character)])>0)
                                              } else if (character[", j, "] == 'blank') {
                                              assign(chi", letters[j], ",
                                              blank(pp, colnames(pp[i])), envir=my_env)
-                                             } else {print(warning_wp_ch)}")))}
+                                             } else {print(warning_wrong)}")))}
       line <- eval(parse(
       text=paste0("paste0('gridExtra::grid.arrange(' ,", paste0(" chi", letters[1:ncol], collapse = ",', ',"), ",', ncol=", ncol, ")')")))
       write(paste0("#+ character", i, ", fig.width=13, fig.height=", long), file.path(dir, "brinton_outcomes", "wideplot.R"), append=TRUE)  # gridExtra
@@ -1132,6 +1135,7 @@ if (length(data[sapply(data, is.character)])>0)
 rmarkdown::render(file.path(dir, "brinton_outcomes", "wideplot.R", fsep = .Platform$file.sep), "html_document", envir=my_env)
 pander::openFileInOS(file.path(dir, "brinton_outcomes", "wideplot.html", fsep = .Platform$file.sep))
 # unlink(file.path(dir, "brinton_outcomes", fsep = .Platform$file.sep), recursive = TRUE)
+  }
 }
 
 

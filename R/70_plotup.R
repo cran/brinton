@@ -23,7 +23,9 @@
 #' @export
 #'
 #' @examples
-#' plotup(iris, "Petal.Width", "color heatmap", output = "plots pane")
+#' if (interactive()) {
+#' plotup(iris, "Petal.Width", "color heatmap")
+#' }
 #' plotup(iris, "Petal.Width", "color heatmap", output = "console")
 plotup <- function(data,
                    vars,
@@ -32,8 +34,9 @@ plotup <- function(data,
                    dir = tempdir()
                    )
 {
+  if (rmarkdown::pandoc_available("1.12.3") == FALSE) {print(warning_pandoc)}
+  else if (rmarkdown::pandoc_available("1.12.3") == TRUE) {
   my_env <- new.env()
-  if(rmarkdown::pandoc_available() == FALSE || rmarkdown::pandoc_version() < "1.12.3") {stop(warning_pandoc)}
   ## Value validation: function's argument
   ### dataset
   ### variable
@@ -1409,3 +1412,4 @@ ggplot(",
     # unlink(file.path(dir, "brinton_outcomes", fsep = .Platform$file.sep), recursive = TRUE)
     }
   }
+}

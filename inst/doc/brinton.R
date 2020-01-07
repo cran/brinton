@@ -9,7 +9,7 @@
 #  library(brinton)
 
 ## ---- echo = FALSE------------------------------------------------------------
-library(brinton)
+suppressWarnings(library(brinton))
 
 ## ---- echo=FALSE, comment=""--------------------------------------------------
 cat("wideplot(data, dataclass = NULL, logical = NULL, ordered = NULL,
@@ -20,7 +20,7 @@ cat("wideplot(data, dataclass = NULL, logical = NULL, ordered = NULL,
 str(esoph)
 
 ## ---- eval = FALSE------------------------------------------------------------
-#  wideplot(data = esoph)
+#  wideplot(esoph)
 
 ## ----wideplotesoph, echo=FALSE, out.width = '80%', fig.cap="Figure 1"---------
 knitr::include_graphics("figures/wideplot_esoph.png")
@@ -44,60 +44,4 @@ knitr::include_graphics('figures/plotup_esoph_ncases_linegraph.png')
 
 ## ---- comment = ""------------------------------------------------------------
 plotup(esoph, 'ncases', 'line graph', output = 'console')
-
-## ---- eval=FALSE--------------------------------------------------------------
-#  data(aids, package = 'KMsurv')
-#  wideplot(aids)
-#  wideplot(aids, numeric = c('line graph', 'stepped line graph'), ncol=5)
-
-## ----wideplotaids1, echo=FALSE, out.width = '80%', fig.cap="Figure 4"---------
-knitr::include_graphics('figures/wideplot_aids0.png')
-
-## ---- eval = FALSE------------------------------------------------------------
-#  wideplot(data = aids, numeric = c('line graph', 'stepped line graph'),
-#           ncol = 5)
-
-## ----wideplotaids2, echo=FALSE, out.width = '80%', fig.cap="Figure 4"---------
-knitr::include_graphics('figures/wideplot_aids.png')
-
-## ---- eval=FALSE--------------------------------------------------------------
-#  aids$adult <- as.logical(aids$adult)
-#  wideplot(data = aids)
-
-## ----wideplotaids3, echo=FALSE, out.width = '80%', fig.cap="Figure 5"---------
-knitr::include_graphics('figures/wideplot_aids2.png')
-
-## ---- eval=FALSE--------------------------------------------------------------
-#  data(azt, package = 'KMsurv')
-#  wideplot(data = azt, label = TRUE)
-
-## ----wideplotazt, echo=FALSE, out.width = '80%', fig.cap="Figure 6"-----------
-knitr::include_graphics('figures/wideplot_azt.png')
-
-## ---- echo=TRUE, eval=FALSE---------------------------------------------------
-#  data(SpeciesArea, package = 'Stat2Data')
-#  wideplot(data = SpeciesArea, dataclas = c('factor'),
-#           factor = c('line graph', 'color bar graph'), ncol = 5)
-
-## ----SpeciesArea, echo=FALSE, out.width = '80%', fig.cap="Figure 7"-----------
-knitr::include_graphics('figures/wideplot_SpeciesArea.png')
-
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
-#  data(HI, package = 'Ecdat')
-#  wideplot(data = HI)
-#  longplot(data = HI, vars = 'experience')
-#  plotup(data = HI, vars = 'experience', diagram = 'bar graph',
-#         output = 'plots pane')
-
-## ----HI_1, fig.height=2.4, out.width = '40%', echo = FALSE, fig.cap="Figure 8"----
-knitr::include_graphics('figures/HI_1-1.png')
-
-## ----HI_11, eval = FALSE, echo=TRUE-------------------------------------------
-#  gridExtra::grid.arrange(plotup(HI, 'husby', 'histogram', output = 'plots pane'),
-#                          plotup(HI, 'husby', 'bar graph', output = 'plots pane'),
-#                          heights=grid::unit(c(2.4), c('in')),
-#                          ncol=2)
-
-## ----HI_2, echo=FALSE, fig.width=10, fig.height = 2.4, out.width = '80%', fig.cap="Figure 9"----
-knitr::include_graphics('figures/HI_2-1.png')
 

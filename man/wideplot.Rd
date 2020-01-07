@@ -4,9 +4,20 @@
 \alias{wideplot}
 \title{Presents a wideplot in a html output.}
 \usage{
-wideplot(data, dataclass = NULL, logical = NULL, ordered = NULL,
-  factor = NULL, character = NULL, datetime = NULL, numeric = NULL,
-  group = NULL, ncol = 7, label = "FALSE", dir = tempdir())
+wideplot(
+  data,
+  dataclass = NULL,
+  logical = NULL,
+  ordered = NULL,
+  factor = NULL,
+  character = NULL,
+  datetime = NULL,
+  numeric = NULL,
+  group = NULL,
+  ncol = 7,
+  label = "FALSE",
+  dir = tempdir()
+)
 }
 \arguments{
 \item{data}{Data.frame. Default dataset to use for plot. Unquoted. If not
@@ -222,7 +233,9 @@ corresponds to graphical representations of each one of the variables
 considered within a given dataset.
 }
 \examples{
-\dontrun{wideplot(sleep, dataclass = c("factor"),
+if (interactive()) {
+wideplot(sleep, dataclass = c("factor"),
 factor=c("point graph", "line graph", "tile plot"),
-numeric = c("point graph", "line graph", "stepped line graph"))}
+numeric = c("point graph", "line graph", "stepped line graph"))
+}
 }

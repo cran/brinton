@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 # length(unique(data$vars))/6 + 0.5
 
 ## ---- echo=FALSE, message=FALSE-----------------------------------------------
-library(dplyr)
+# library(dplyr)
 
 ## ----logical_01, fig.width=12, fig.height=0.83--------------------------------
 # data(ca2006, package = "pscl")
@@ -293,15 +293,15 @@ cat("datetime = c('freq. reordered bar graph', 'bw freq. reordered bar graph', '
 knitr::include_graphics('figures/character_11-1.png')
 cat("datetime = c('alphab. reordered bar graph', 'bw alphab. reordered bar graph', 'color alphab. reordered bar graph')")
 
-## -----------------------------------------------------------------------------
-# flights_dt <- nycflights13::flights %>%
-#   transmute(departure = lubridate::make_datetime(
-#     year, 
-#     month, 
-#     day, 
-#     hour, 
-#     minute)
-#     )
+## ---- eval = FALSE------------------------------------------------------------
+#  # flights_dt <- nycflights13::flights %>%
+#  #   transmute(departure = lubridate::make_datetime(
+#  #     year,
+#  #     month,
+#  #     day,
+#  #     hour,
+#  #     minute)
+#  #     )
 
 ## ----datetime_01, fig.width=12, fig.height=2.4--------------------------------
 # gridExtra::grid.arrange(brinton::plotup(flights_dt[1:50,], "departure", "line graph", output = 'plots pane'),
