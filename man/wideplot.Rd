@@ -162,6 +162,11 @@ The types of data to be considered among the following:
   \item \emph{'blank'}
   \item \emph{'area graph'}
   \item \emph{'stepped area graph'}
+  \item \emph{'bw stepped area graph'}
+  \item \emph{'color stepped area graph'}
+  \item \emph{'seq. stripe graph'}
+  \item \emph{'bw seq. stripe graph'}
+  \item \emph{'color seq. stripe graph'}
   \item \emph{'line graph'}
   \item \emph{'stepped line graph'}
   \item \emph{'stripe graph'}
@@ -199,6 +204,9 @@ The types of data to be considered among the following:
   \item \emph{'box plot'}
   \item \emph{'3 uniaxial'}
   \item \emph{'normal qq plot'}
+  \item \emph{'ecdf plot'}
+  \item \emph{'dotted ecdf plot'}
+  \item \emph{'stepped ecdf plot'}
 }}
 
 \item{group}{Quoted character. Group of prestablished graphics which marks represent:

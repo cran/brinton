@@ -104,6 +104,11 @@ my_env <- new.env(parent = emptyenv())
 #'   \item \emph{'blank'}
 #'   \item \emph{'area graph'}
 #'   \item \emph{'stepped area graph'}
+#'   \item \emph{'bw stepped area graph'}
+#'   \item \emph{'color stepped area graph'}
+#'   \item \emph{'seq. stripe graph'}
+#'   \item \emph{'bw seq. stripe graph'}
+#'   \item \emph{'color seq. stripe graph'}
 #'   \item \emph{'line graph'}
 #'   \item \emph{'stepped line graph'}
 #'   \item \emph{'stripe graph'}
@@ -141,6 +146,9 @@ my_env <- new.env(parent = emptyenv())
 #'   \item \emph{'box plot'}
 #'   \item \emph{'3 uniaxial'}
 #'   \item \emph{'normal qq plot'}
+#'   \item \emph{'ecdf plot'}
+#'   \item \emph{'dotted ecdf plot'}
+#'   \item \emph{'stepped ecdf plot'}
 #' }
 #' @param character Character vector. Graphics for character variables among the following:
 #' \itemize{
@@ -363,7 +371,7 @@ wideplot <- function(data,
     numeric   <- sample(numeric_v[2:length(numeric_v)], 7, replace=F)
   }
 
-## Addition of black cells to the graphic matrix source
+## Addition of blank cells to the graphic matrix source
 
   datetime    <- add_blank(datetime)
   logical     <- add_blank(logical)
@@ -384,8 +392,8 @@ if(is.data.frame(data) == FALSE) {
        "You have provided an object of class ", class(data))
   }
 if(tibble::is_tibble(data) == TRUE) {
-  # stop("The object must be coerced to a data frame.")
-  data <- as.data.frame(data)
+  stop(warning_tibble)
+  # data <- as.data.frame(data)
   }
 
 ## Format validation: function's parameters

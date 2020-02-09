@@ -11,7 +11,7 @@
 
 <meta name="author" content="Pere Millán-Martínez &amp; Ramon Oller Piqué" />
 
-<meta name="date" content="2020-01-04" />
+<meta name="date" content="2020-02-09" />
 
 <title>Automated Graphical Data Analysis with brinton</title>
 
@@ -1636,7 +1636,7 @@ summary {
 
 <h1 class="title toc-ignore">Automated Graphical Data Analysis with brinton</h1>
 <h4 class="author">Pere Millán-Martínez &amp; Ramon Oller Piqué</h4>
-<h4 class="date">2020-01-04</h4>
+<h4 class="date">2020-02-09</h4>
 
 </div>
 
@@ -1650,6 +1650,7 @@ library(brinton)</code></pre>
 <pre><code>## Loading required package: ggplot2</code></pre>
 <pre><code>## Loading required package: gridExtra</code></pre>
 <pre><code>## Loading required package: rmarkdown</code></pre>
+<pre><code>## Loading required package: glue</code></pre>
 <pre><code>## M a G i C i N G R a P H S</code></pre>
 </div>
 <div id="brintons-functions" class="section level1">
@@ -1741,18 +1742,20 @@ Figure 3
 </p>
 </div>
 <p>This function requires three arguments: <code>data</code>, <code>vars</code> and <code>diagram</code>. The fourth argument, <code>output</code>, is optional and has the default value of <strong>html</strong>. However, if it is set to <code>plots pane</code>, instead of generating a graphic in an <strong>html</strong> page, it generates a graphic in the plots pane of RStudio. If, instead, it is set to ’’console´´, the function returns the code used by the library to generate this precise graphic. This feature is especially useful to adapt the default graphic to the specific needs and preferences of the user.</p>
-<pre class="r"><code>plotup(esoph, &#39;ncases&#39;, &#39;line graph&#39;, output = &#39;console&#39;)</code></pre>
+<pre class="r"><code>plotup(data = esoph, vars = &#39;ncases&#39;, diagram =&#39;line graph&#39;, output = &#39;console&#39;)</code></pre>
 <pre><code>theme_set(theme_minimal())
+
 ggplot(esoph, aes(x=seq_along(ncases), y=ncases)) +
-  geom_path(aes(group=1)) +
+  geom_line() +
   labs(x=&#39;seq&#39;) +
   theme(panel.grid = element_line(colour = NA),
-    axis.ticks=element_line(color=&#39;black&#39;))</code></pre>
+    axis.ticks = element_line(color = &#39;black&#39;))</code></pre>
 </div>
 </div>
 <div id="the-specimen" class="section level1">
 <h1>The specimen</h1>
 <p>The documentation of the library includes the vignette ‘1v specimen’, which contains a specimen with images of all the graphic types for a single variable, incorporated into the library according to the variable type. These graphs serve as an example so that the user can rapidly check whether a graphic has been incorporated, the type or types of variable for which it has been incorporated, and the label with which it has been identified. The suitability of a particular graphic will depend on the datasets of interest and the variables of each particular user.</p>
+<p>In order to keep the package as compact as possible, the specimens of graphics that require more than one input variable are not built whithin the package but they can be found at <a href="https://sciencegraph.github.io/brinton/articles/">sciencegraph.github.io/brinton/articles/</a>.</p>
 </div>
 
 

@@ -103,10 +103,11 @@ knitr::include_graphics('figures/plotup_esoph_ncases_linegraph.png')
 This function requires three arguments: `data`, `vars` and `diagram`. The fourth argument, `output`, is optional and has the default value of **html**. However, if it is set to `plots pane`, instead of generating a graphic in an **html** page, it generates a graphic in the plots pane of RStudio. If, instead, it is set to ''console´´, the function returns the code used by the library to generate this precise graphic. This feature is especially useful to adapt the default graphic to the specific needs and preferences of the user.
 
 ```{r, comment = ""}
-plotup(esoph, 'ncases', 'line graph', output = 'console')
+plotup(data = esoph, vars = 'ncases', diagram ='line graph', output = 'console')
 ```
 
 # The specimen
 
 The documentation of the library includes the vignette '1v specimen', which contains a specimen with images of all the graphic types for a single variable, incorporated into the library according to the variable type. These graphs serve as an example so that the user can rapidly check whether a graphic has been incorporated, the type or types of variable for which it has been incorporated, and the label with which it has been identified. The suitability of a particular graphic will depend on the datasets of interest and the variables of each particular user. 
 
+In order to keep the package as compact as possible, the specimens of graphics that require more than one input variable are not built whithin the package but they can be found at [sciencegraph.github.io/brinton/articles/](https://sciencegraph.github.io/brinton/articles/).

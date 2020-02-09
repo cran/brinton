@@ -316,14 +316,14 @@ cat("datetime = c('line graph', 'stepped line graph')")
 #                         brinton::plotup(flights_dt[1:50,], "departure", "stepped point-to-point graph", output = 'plots pane'),
 #                         heights=grid::unit(c(2.4), c("in")),
 #                         ncol=5)
-knitr::include_graphics('figures/datetime_03-1.png')
+knitr::include_graphics('figures/datetime_02-1.png')
 cat("datetime = c('point-to-point graph', 'stepped point-to-point graph')")
 
 ## ----datetime_05, fig.width=12, fig.height=2.4--------------------------------
 # gridExtra::grid.arrange(brinton::plotup(flights_dt[1:50,], "departure", "point graph", output = 'plots pane'),
 #                         heights=grid::unit(c(2.4), c("in")),
 #                         ncol=5)
-knitr::include_graphics('figures/datetime_03-1.png')
+knitr::include_graphics('figures/datetime_05-1.png')
 cat("datetime = c('point graph')")
 
 ## ----datetime_03, fig.width=12, fig.height=2.4--------------------------------
@@ -332,7 +332,7 @@ cat("datetime = c('point graph')")
 #                         brinton::plotup(flights_dt[1:50,], "departure", "color binned heatmap", output = 'plots pane'), 
 #                         heights=grid::unit(c(2.4), c("in")),
 #                         ncol=5)
-knitr::include_graphics('figures/datetime_04-1.png')
+knitr::include_graphics('figures/datetime_03-1.png')
 cat("datetime = c('binned heatmap', 'bw binned heatmap', 'color binned heatmap')")
 
 ## ----datetime_04, fig.width=12, fig.height=2.4--------------------------------
@@ -345,13 +345,32 @@ cat("datetime = c('bw heatmap', 'color heatmap')")
 
 ## ----numeric_01, fig.width=12, fig.height=2.4---------------------------------
 # data(midwest, package = "ggplot2")
+# midwest <- as.data.frame(midwest)
 # 
-# gridExtra::grid.arrange(brinton::plotup(midwest[1:50,], "area", "area graph", output = 'plots pane'), 
-#                         brinton::plotup(midwest[1:50,], "area", "stepped area graph", output = 'plots pane'), 
+# gridExtra::grid.arrange(brinton::plotup(midwest[1:50,], "area", "area graph", output = 'plots pane'),
+#                         # brinton::plotup(midwest[1:50,], "area", "stepped area graph", output = 'plots pane'),
 #                         heights=grid::unit(c(2.4), c("in")),
 #                         ncol=5)
 knitr::include_graphics('figures/numeric_01-1.png')
-cat("numeric = c('area graph', 'stepped area graph')")
+cat("numeric = c('area graph')")
+
+## ----numeric_17, fig.width=12, fig.height=2.4---------------------------------
+# gridExtra::grid.arrange(brinton::plotup(midwest[1:50,], "area", "stepped area graph", output = 'plots pane'),
+#                         brinton::plotup(midwest[1:50,], "area", "bw stepped area graph", output = 'plots pane'),
+#                         brinton::plotup(midwest[1:50,], "area", "color stepped area graph", output = 'plots pane'),
+#                         heights=grid::unit(c(2.4), c("in")),
+#                         ncol=5)
+knitr::include_graphics('figures/numeric_17-1.png')
+cat("numeric = c('stepped area graph', 'bw stepped area graph', 'color stepped area graph')")
+
+## ----numeric_18, fig.width=12, fig.height=2.4---------------------------------
+# gridExtra::grid.arrange(brinton::plotup(midwest[1:50,], "area", "seq. stripe graph", output = 'plots pane'),
+#                         brinton::plotup(midwest[1:50,], "area", "bw seq. stripe graph", output = 'plots pane'),
+#                         brinton::plotup(midwest[1:50,], "area", "color seq. stripe graph", output = 'plots pane'),
+#                         heights=grid::unit(c(2.4), c("in")),
+#                         ncol=5)
+knitr::include_graphics('figures/numeric_18-1.png')
+cat("numeric = c('seq. stripe graph', 'bw seq. stripe graph', 'color seq. stripe graph')")
 
 ## ----numeric_02, fig.width=12, fig.height=2.4---------------------------------
 # gridExtra::grid.arrange(brinton::plotup(midwest[1:50,], "area", "line graph", output = 'plots pane'), 
@@ -480,4 +499,13 @@ cat("numeric = c('violin plot', 'filled violin plot')")
 #                         ncol=5)
 knitr::include_graphics('figures/numeric_14-1.png')
 cat("numeric = c('box plot', '3 uniaxial', 'qq plot')")
+
+## ----numeric_19, fig.width=12, fig.height=2.4---------------------------------
+# gridExtra::grid.arrange(brinton::plotup(midwest, "area", "ecdf plot", output = 'plots pane'),
+#                         brinton::plotup(midwest, "area", "point ecdf plot", output = 'plots pane'),
+#                         brinton::plotup(midwest, "area", "stepped ecdf plot", output = 'plots pane'),
+#                         heights=grid::unit(c(2.4), c("in")),
+#                         ncol=5)
+knitr::include_graphics('figures/numeric_19-1.png')
+cat("numeric = c('ecdf plot', 'point ecdf plot', 'stepped ecdf plot')")
 

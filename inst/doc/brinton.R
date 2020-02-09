@@ -43,5 +43,5 @@ knitr::include_graphics("figures/longplot_esoph_alcgp.png")
 knitr::include_graphics('figures/plotup_esoph_ncases_linegraph.png')
 
 ## ---- comment = ""------------------------------------------------------------
-plotup(esoph, 'ncases', 'line graph', output = 'console')
+plotup(data = esoph, vars = 'ncases', diagram ='line graph', output = 'console')
 
