@@ -11,7 +11,7 @@
 
 <meta name="author" content="Pere Millán-Martínez &amp; Ramon Oller Piqué" />
 
-<meta name="date" content="2020-05-22" />
+<meta name="date" content="2020-06-29" />
 
 <title>Automated Graphical Data Analysis with brinton</title>
 
@@ -1636,7 +1636,7 @@ summary {
 
 <h1 class="title toc-ignore">Automated Graphical Data Analysis with brinton</h1>
 <h4 class="author">Pere Millán-Martínez &amp; Ramon Oller Piqué</h4>
-<h4 class="date">2020-05-22</h4>
+<h4 class="date">2020-06-29</h4>
 
 </div>
 
@@ -1647,10 +1647,6 @@ summary {
 <p>The library can be installed easily from the Comprehensive R Archive Network (CRAN) using the <strong>R</strong> console. When the library is loaded into memory, it provides a startup message that pays homage to Henry D. Hubbard’s enthusiastic introduction to the book Graphic Presentation by Willard Cope Brinton in 1939:</p>
 <pre class="r"><code>install.packages(&#39;brinton&#39;)
 library(brinton)</code></pre>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre><code>## Loading required package: gridExtra</code></pre>
-<pre><code>## Loading required package: rmarkdown</code></pre>
-<pre><code>## Loading required package: glue</code></pre>
 <pre><code>## M a G i C i N G R a P H S</code></pre>
 </div>
 <div id="brintons-functions" class="section level1">
@@ -1743,11 +1739,10 @@ Figure 3
 </div>
 <p>This function requires three arguments: <code>data</code>, <code>vars</code> and <code>diagram</code>. The fourth argument, <code>output</code>, is optional and has the default value of <strong>html</strong>. However, if it is set to <code>plots pane</code>, instead of generating a graphic in an <strong>html</strong> page, it generates a graphic in the plots pane of RStudio. If, instead, it is set to ’’console´´, the function returns the code used by the library to generate this precise graphic. This feature is especially useful to adapt the default graphic to the specific needs and preferences of the user.</p>
 <pre class="r"><code>plotup(data = esoph, vars = &#39;ncases&#39;, diagram =&#39;line graph&#39;, output = &#39;console&#39;)</code></pre>
-<pre><code>theme_set(theme_minimal())
-
-ggplot(esoph, aes(x=seq_along(ncases), y=ncases)) +
+<pre><code>ggplot(esoph, aes(x=seq_along(ncases), y=ncases)) +
   geom_line() +
   labs(x=&#39;seq&#39;) +
+  theme_minimal() +
   theme(panel.grid = element_line(colour = NA),
     axis.ticks = element_line(color = &#39;black&#39;))</code></pre>
 </div>
