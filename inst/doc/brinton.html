@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
 <meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Pere Millán-Martínez &amp; Ramon Oller Piqué" />
 
-<meta name="date" content="2020-06-29" />
+<meta name="date" content="2020-08-31" />
 
 <title>Automated Graphical Data Analysis with brinton</title>
 
@@ -1541,6 +1541,7 @@ code {
 }
 img {
   max-width:100%;
+  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1602,7 +1603,6 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
-  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1614,6 +1614,18 @@ summary {
   display: none;
 }
 </style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
 
 <!-- code folding -->
 
@@ -1636,7 +1648,7 @@ summary {
 
 <h1 class="title toc-ignore">Automated Graphical Data Analysis with brinton</h1>
 <h4 class="author">Pere Millán-Martínez &amp; Ramon Oller Piqué</h4>
-<h4 class="date">2020-06-29</h4>
+<h4 class="date">2020-08-31</h4>
 
 </div>
 
@@ -1647,6 +1659,11 @@ summary {
 <p>The library can be installed easily from the Comprehensive R Archive Network (CRAN) using the <strong>R</strong> console. When the library is loaded into memory, it provides a startup message that pays homage to Henry D. Hubbard’s enthusiastic introduction to the book Graphic Presentation by Willard Cope Brinton in 1939:</p>
 <pre class="r"><code>install.packages(&#39;brinton&#39;)
 library(brinton)</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang</code></pre>
 <pre><code>## M a G i C i N G R a P H S</code></pre>
 </div>
 <div id="brintons-functions" class="section level1">
@@ -1770,23 +1787,6 @@ $(document).ready(function () {
 
 
 </script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

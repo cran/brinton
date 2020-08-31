@@ -1,6 +1,6 @@
 Package: brinton
 Type: Package
-Version: 0.2.0
+Version: 0.2.1
 Title: A Graphical EDA Tool
 Description: An automated graphical exploratory data analysis (EDA) tool that introduces: 
   a.) wideplot() graphics for exploring the structure of a dataset through a grid of variables 
@@ -24,9 +24,9 @@ URL: https://sciencegraph.github.io/brinton/,
         https://github.com/sciencegraph/brinton
 BugReports: https://github.com/sciencegraph/brinton/issues
 NeedsCompilation: no
-Packaged: 2020-06-29 08:50:32 UTC; 34601
+Packaged: 2020-08-30 23:43:33 UTC; Pere
 Author: Pere Millán-Martínez [aut, cre],
   Ramon Oller Piqué [ctb]
 Maintainer: Pere Millán-Martínez <info@sciencegraph.org>
 Repository: CRAN
-Date/Publication: 2020-06-30 07:40:03 UTC
+Date/Publication: 2020-08-31 10:10:02 UTC
