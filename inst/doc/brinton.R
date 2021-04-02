@@ -4,6 +4,19 @@
 #    comment = "#>"
 #  )
 
+## ---- echo = FALSE, comment=""------------------------------------------------
+cat("@article{RJ-2021-018,
+  author = {Pere Millán-Martínez and Ramon Oller},
+  title = {{A Graphical EDA Tool with ggplot2: brinton}},
+  year = {2021},
+  journal = {{The R Journal}},
+  doi = {10.32614/RJ-2021-018},
+  url = {https://doi.org/10.32614/RJ-2021-018},
+  pages = {311--320},
+  volume = {12},
+  number = {2}
+}")
+
 ## ---- eval = FALSE------------------------------------------------------------
 #  install.packages('brinton')
 #  library(brinton)

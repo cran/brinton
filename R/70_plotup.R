@@ -1634,6 +1634,7 @@ pp_3uniaxial <- function(data,
       "
       ggplot({deparse(substitute(data))}, aes(x=seq_along({as.character(substitute(vars))}))) +
       \x20\x20geom_tile(aes(y=1), fill = 'black') +
+      \x20\x20labs(y = '', x = 'seq') +
       \x20\x20{theme_basic_y}"
     )
   }
@@ -1649,6 +1650,7 @@ pp_3uniaxial <- function(data,
       ggplot({deparse(substitute(data))}, aes(x=seq_along({as.character(substitute(vars))}))) +
       \x20\x20geom_tile(aes(y=1, fill={as.character(substitute(vars))})) +
       \x20\x20{scale_bw_a} +
+      \x20\x20labs(y = '', x = 'seq') +
       \x20\x20{theme_basic_yz}"
     )
   }
@@ -1664,6 +1666,7 @@ pp_3uniaxial <- function(data,
       ggplot({deparse(substitute(data))}, aes(x=seq_along({as.character(substitute(vars))}))) +
       \x20\x20geom_tile(aes(y=1, fill={as.character(substitute(vars))})) +
       \x20\x20{scale_value_a} +
+      \x20\x20labs(y = '', x = 'seq') +
       \x20\x20{theme_basic_yz}"
     )
   }
@@ -1940,6 +1943,9 @@ pp_3uniaxial <- function(data,
            identical(v, c("N", "N"))) {
     vars1 <- vars[1]
     vars2 <- vars[2]
+    q <- glue::glue(
+      "{getdens2}"
+    )
     p <- glue::glue(
       "
       ggplot({deparse(substitute(data))}, aes(x={as.character(substitute(vars1))}, y={as.character(substitute(vars2))})) +
@@ -1954,6 +1960,9 @@ pp_3uniaxial <- function(data,
            identical(v, c("N", "N"))) {
     vars1 <- vars[1]
     vars2 <- vars[2]
+    q <- glue::glue(
+      "{getdens2}"
+    )
     p <- glue::glue(
       "
       ggplot({deparse(substitute(data))}, aes(x={as.character(substitute(vars1))}, y={as.character(substitute(vars2))})) +
