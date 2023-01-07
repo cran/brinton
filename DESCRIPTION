@@ -1,6 +1,6 @@
 Package: brinton
 Type: Package
-Version: 0.2.6
+Version: 0.2.7
 Title: A Graphical EDA Tool
 Description: An automated graphical exploratory data analysis (EDA) tool that introduces: 
   a.) wideplot graphics for exploring the structure of a dataset through a grid of variables 
@@ -17,7 +17,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: false
 Imports: ggplot2, gridExtra, rmarkdown, glue, pander, lubridate,
-        tibble, sm, RColorBrewer, forcats, GGally
+        tibble, sm, RColorBrewer, forcats, GGally, patchwork, scales
 Suggests: knitr, MASS, hexbin, testthat (>= 2.1.0)
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
@@ -26,9 +26,9 @@ URL: https://sciencegraph.github.io/brinton/,
         https://github.com/sciencegraph/brinton
 BugReports: https://github.com/sciencegraph/brinton/issues
 NeedsCompilation: no
-Packaged: 2022-07-14 07:33:31 UTC; pmillan
+Packaged: 2022-12-29 21:44:48 UTC; pmillan
 Author: Pere Millán-Martínez [aut, cre],
   Ramon Oller Piqué [ctb]
 Maintainer: Pere Millán-Martínez <info@sciencegraph.org>
 Repository: CRAN
-Date/Publication: 2022-07-16 23:50:02 UTC
+Date/Publication: 2023-01-07 14:00:10 UTC
